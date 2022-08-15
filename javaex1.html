@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <title> Do Your Tasks</title>
+    <link rel="shortcut icon" href= "alarmfavicon.ico" type= "image/x-icon">
+    <link rel="stylesheet" href="jsex1.css">
+    
+</head>
+<body style="margin:0;background-color:rgb(174, 243, 177)">
+    
+        
+        <form name="alarm">
+            <header style="text-align: center; font-size: 70px; color: rgb(147, 147, 204);margin: 100px 0px 0px 0px"><b> Do your Tasks!!!</b></header>
+                <div style="margin: 150px 250px 50px 250px">
+                <input type= "text" id = "Alarmtask" placeholder = "Enter the task you plan to do....." size = "40" class="textbox1">
+                <button type="button" onclick="buttonfn() ;reset()" class="button button1" name="alarm1" >Submit</button>
+                <button type="reset" class="button button1" onclick="task1()">Clear it Up!</button>
+                </div>
+        </form>
+        <br>
+        <br>
+        <ol id="result" style="margin: 40px 250px 50px 250px;font-size: 25px; color:blue;"></ol>
+        <Script>
+            var count = 0;
+            function buttonfn(){
+                
+                var task= document.getElementById("Alarmtask").value;
+                if(task==""){
+                    alert("Task is empty");
+                    return null;
+                }
+                var datas = document.createElement("li");
+                var butto = document.createElement("button");
+                var butto1 = document.createElement("button");
+                var brk = document.createElement("br");
+                datas.id = "datasid";
+                butto.innerHTML="X";
+                butto1.innerHTML="Done";
+                datas.style = "float:left";
+   
+
+                datas.innerHTML = task;
+                document.getElementById("result").appendChild(datas)  ;
+                document.getElementById("result").appendChild(butto)  ;
+                document.getElementById("result").appendChild(butto1)  ;
+                document.getElementById("result").appendChild(brk)  ;
+            
+
+                butto.onclick = function(){  
+                    
+                    document.getElementById("result").removeChild(datas)  ;
+                    document.getElementById("result").removeChild(butto)  ;
+                    document.getElementById("result").removeChild(butto1)  ;
+                    document.getElementById("result").removeChild(brk)  ;
+            
+                }
+
+                butto1.onclick = function(){
+                    datas.style="text-decoration: line-through;";
+                }
+            } 
+            function task1(){
+                    document.getElementById("result").innerHTML = "";             
+    }
+        </Script>
+
+</body>
